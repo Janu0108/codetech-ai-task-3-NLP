@@ -58,8 +58,6 @@ if __name__ == "__main__":
     # Load word lists
     positive_words, negative_words = load_word_lists()
     
-    # Sample input text
-    text = "I love sunny days but I hate rainy days!"
     
     # Analyze the sentiment
     sentiment = analyze_sentiment(text, positive_words, negative_words)
