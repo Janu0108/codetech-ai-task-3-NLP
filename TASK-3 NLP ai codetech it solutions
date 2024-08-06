@@ -1,0 +1,35 @@
+def load_word_lists():
+    # Predefined lists of positive and negative words
+    positive_words = ["good", "happy", "love", "awesome", "excellent", "great", "fantastic", "nice", "amazing"]
+    negative_words = ["bad", "sad", "hate", "terrible", "awful", "horrible", "poor", "worse", "worst"]
+    return positive_words, negative_words
+
+def analyze_sentiment(text, positive_words, negative_words):
+    # Convert text to lowercase and split into words
+    words = text.lower().split()
+    
+    # Count positive and negative words
+    positive_count = sum(1 for word in words if word in positive_words)
+    negative_count = sum(1 for word in words if word in negative_words)
+    
+    # Determine sentiment
+    if positive_count > negative_count:
+        return "Positive"
+    elif negative_count > positive_count:
+        return "Negative"
+    else:
+        return "Neutral"
+
+if __name__ == "__main__":
+    # Load word lists
+    positive_words, negative_words = load_word_lists()
+    
+    # Sample input text
+    text = "I love sunny days but I hate rainy days!"
+    
+    # Analyze the sentiment
+    sentiment = analyze_sentiment(text, positive_words, negative_words)
+    
+    # Print the result
+    print(f"Sentiment of the text: '{text}' is {sentiment}")
+
